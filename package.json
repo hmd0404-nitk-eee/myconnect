@@ -1,0 +1,16 @@
+{
+  "name": "myconnect",
+  "version": "1.0.0",
+  "description": "A Social Media/Twitter-like App using MERN-G Stack",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Harshal Dhake",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server": "^3.5.0",
+    "graphql": "^15.8.0",
+    "mongoose": "^6.1.4"
+  }
+}
