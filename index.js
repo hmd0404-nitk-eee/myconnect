@@ -1,31 +1,26 @@
 //Dependency Imports
 const { ApolloServer } = require('apollo-server');
-const gql = require('graphql-tag');
 const mongoose = require('mongoose');
 
 //Local Imports
 const { MONGODB } = require('./config');
 
-//GraphQL Code
-const typeDefs = gql`
-    type Query {
-        helloWorld: String
-    }
-`;
-
-const resolvers = {
-    Query: {
-        helloWorld: () => 'Hello World!'
-    }
-};
+//GraphQL Imports
+const typeDefs = require('./graphql/typeDefs');
+const resolvers = require('./graphql/resolvers');
 
 //Server Code
 const server = new ApolloServer({
     typeDefs,
-    resolvers
+    resolvers,
+    context: ({ req }) => ({ req })
 });
 
-server.listen({port: 5000})
+mongoose.connect(MONGODB, { useNewUrlParser: true})
+    .then(() => {
+        console.log("Database Connected Successfully!");
+        return server.listen({port: 5000});
+    })
     .then(res => {
         console.log(`Server Running at ${res.url}`);
-    })
+    });
