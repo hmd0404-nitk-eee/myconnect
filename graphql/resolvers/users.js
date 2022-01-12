@@ -14,7 +14,7 @@ function generateJWToken(user) {
       username: user.username,
     },
     DECRYPT_KEY,
-    { expiresIn: "10m" }
+    { expiresIn: "1h" }
   );
 }
 

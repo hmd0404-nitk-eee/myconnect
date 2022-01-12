@@ -4,6 +4,7 @@
   "description": "A Social Media/Twitter-like App using MERN-G Stack",
   "main": "index.js",
   "scripts": {
+    "single-start": "node index",
     "start": "nodemon index",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

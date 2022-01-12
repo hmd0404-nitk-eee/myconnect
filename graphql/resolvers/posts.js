@@ -14,6 +14,19 @@ module.exports = {
         throw new Error(err);
       }
     },
+
+    async getSinglePost(_, { postId }) {
+      try{
+        const post = await Post.findById(postId);
+        if(post) {
+          return post;
+        } else {
+          throw new Error('Post not Found!');
+        }
+      } catch (err) {
+        throw new Error(err);
+      }
+    },
   },
 
   Mutation: {
@@ -38,11 +51,11 @@ module.exports = {
       return post;
     },
 
-    async deletePost(parent, { postID }, context) {
+    async deletePost(parent, { postId }, context) {
       const user = checkAuth(context);
 
       try {
-        const post = await Post.findById(postID);
+        const post = await Post.findById(postId);
         if (user.username !== post.username) {
           throw new AuthenticationError("Action not permissible!");
         } else {

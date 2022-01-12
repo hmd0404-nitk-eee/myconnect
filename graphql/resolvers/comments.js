@@ -9,7 +9,7 @@ module.exports = {
         createComment: async (_, { postId, body }, context) => {
             const { username } = checkAuth(context);
             
-            if(!validateComment(body)) {
+            if(body.trim() === "") {
                 throw new UserInputError("Comment cannot be empty!", {
                     errors: "Comment can not be empty!"
                 });
