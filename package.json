@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "single-start": "node index",
-    "start": "nodemon index",
+    "start": "node index",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Harshal Dhake",
@@ -15,7 +15,6 @@
     "bcrypt": "^5.0.1",
     "graphql": "^15.8.0",
     "jsonwebtoken": "^8.5.1",
-    "jwtoken": "^0.0.0",
     "mongoose": "^6.1.4",
     "nodemon": "^2.0.15"
   }
